@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Form</title>
+</head>
+<body>
+    <h1>Add Employee</h1>
+    <form method="POST">
+        <label for="empcode">Empcode:</label>
+        <input type="number" id="empcode" name="empcode" required><br>
+
+        <label for="firstname">Firstname:</label>
+        <input type="text" id="firstname" name="firstname" required><br>
+
+        <label for="lastname">Lastname:</label>
+        <input type="text" id="lastname" name="lastname" required><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br>
+
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+            <option value="">Select Status</option>
+            <option value="active">Active</option>
+            <option value="inactive">Inactive</option>
+        </select><br>
+
+        <button type="submit">Add Employee</button>
+    </form>
+
+    <h2>Registered Employees</h2>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Empcode</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.empcode }}</td>
+                <td>{{ employee.firstname }}</td>
+                <td>{{ employee.lastname }}</td>
+                <td>{{ employee.status }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
